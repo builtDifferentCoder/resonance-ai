@@ -1,60 +1,3 @@
-<div align="center">
-
-<img src="https://33uee5uclf.ufs.sh/f/fa600f97-6cf2-4759-8641-3093d13591bf-6rrk6b.png" alt="Resonance" width="720" />
-
-<br />
-<br />
-
-<h1>Resonance</h1>
-
-<p>The open-source ElevenLabs alternative.</p>
-
-<p>AI-powered text-to-speech and voice cloning built with Next.js 16, React 19, and Chatterbox TTS.</p>
-
-<br />
-
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/SioRb1?referralCode=ANTONIO&utm_medium=integration&utm_source=template&utm_campaign=generic)
-
-<br />
-
-<p>
-  <a href="https://cwa.run/clerk"><img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk" /></a>&nbsp;
-  <a href="https://cwa.run/polar"><img src="https://img.shields.io/badge/Polar-000000?style=for-the-badge&logo=polar&logoColor=white" alt="Polar" /></a>&nbsp;
-  <a href="https://cwa.run/railway"><img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" alt="Railway" /></a>&nbsp;
-  <a href="https://cwa.run/sentry"><img src="https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white" alt="Sentry" /></a>&nbsp;
-  <a href="https://cwa.run/coderabbit"><img src="https://img.shields.io/badge/CodeRabbit-FF6C37?style=for-the-badge&logo=rabbitmq&logoColor=white" alt="CodeRabbit" /></a>&nbsp;
-  <a href="https://cwa.run/prisma"><img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" /></a>
-</p>
-
-</div>
-
-<br />
-
-## Tutorial
-
-[![Watch on YouTube](https://img.shields.io/badge/Watch_the_Full_Course-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://cwa.run/resonance-gh-yt)
-
-Learn how to build this entire project from scratch in a **free 12-hour video course** on YouTube. The tutorial covers every feature  - authentication, text-to-speech, voice cloning, billing, deployment, and more.
-
-Each chapter has a matching branch so you can check out the code at any point in the tutorial:
-
-| Branch | Chapter |
-|--------|---------|
-| `main` | Final project (all chapters combined) |
-| `02-dashboard` | Dashboard layout and navigation |
-| `03-text-to-speech-ui` | Text-to-speech UI |
-| `04-backend-infrastructure` | Backend infrastructure (tRPC, R2, Prisma) |
-| `05-voice-selection` | Voice selection and library |
-| `06-tts-generation-audio-player` | TTS generation and audio player |
-| `07-tts-history-polish` | TTS history and polish |
-| `bonus-sentry-error-monitoring` | Bonus: Sentry error monitoring |
-| `08-voice-management` | Voice management and cloning |
-| `09-billing` | Billing and usage metering |
-
-```bash
-git checkout 04-backend-infrastructure  # example: jump to Chapter 4
-```
-
 ## Features
 
 - **Text-to-Speech**  - Generate speech from text with adjustable creativity, variety, expression, and flow parameters
@@ -68,19 +11,11 @@ git checkout 04-backend-infrastructure  # example: jump to Chapter 4
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js **20.9** or later
-- [Prisma Postgres](https://cwa.run/prisma) database
-- [Clerk](https://cwa.run/clerk) account (with Organizations enabled)
-- [Cloudflare R2](https://cwa.run/cloudflare-r2) bucket
-- [Modal](https://cwa.run/modal) account (for GPU-hosted TTS)
-- [Polar](https://cwa.run/polar) account (for billing)
 
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/code-with-antonio/resonance.git
+git clone https://github.com/builtDifferentCoder/resonance-ai.git/
 cd resonance
 npm install
 ```
@@ -138,8 +73,6 @@ R2_BUCKET_NAME = "<your-r2-bucket-name-here>"
 R2_ACCOUNT_ID = "<your-r2-account-id-here>"
 ```
 
-Then create the required secrets in your [Modal dashboard](https://cwa.run/modal-secrets):
-
 | Secret Name | Keys | Description |
 |-------------|------|-------------|
 | `cloudflare-r2` | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | R2 API credentials (used for bucket mount) |
@@ -168,7 +101,7 @@ npm run sync-api
 npx prisma db seed
 ```
 
-Seeds 20 built-in voices to the database and R2. The system voice WAV files are included in the repository and originate from [Modal's voice sample pack](https://modal-cdn.com/blog/audio/chatterbox-tts-voices.zip).
+
 
 ### 7. Run
 
@@ -182,7 +115,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Resonance is designed to be self-hosted. You'll need:
 
-1. **A PostgreSQL database**  - [Prisma Postgres](https://cwa.run/prisma) (recommended), or any managed Postgres
+1. **A PostgreSQL database** (recommended), or any managed Postgres
 2. **Cloudflare R2**  - For audio storage (S3-compatible, generous free tier)
 3. **Modal**  - For serverless GPU inference (pay-per-second billing)
 4. **Clerk**  - For authentication and multi-tenancy
@@ -222,7 +155,3 @@ src/
 | `npm run lint` | Lint with ESLint |
 | `npm run sync-api` | Regenerate Chatterbox API types from OpenAPI spec |
 
-## Acknowledgements
-
-- [Chatterbox TTS](https://github.com/resemble-ai/chatterbox) by Resemble AI - the open-source zero-shot voice cloning model powering speech generation
-- [Modal](https://cwa.run/modal-tts) - serverless GPU deployment example and [voice sample pack](https://modal-cdn.com/blog/audio/chatterbox-tts-voices.zip)
