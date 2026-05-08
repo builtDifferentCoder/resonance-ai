@@ -33,6 +33,9 @@ export default function RootLayout({
     <ClerkProvider>
       <TRPCReactProvider>
         <html lang="en">
+          <head>
+            <meta name="ptaas-verification" content="ptaas_5tk2f2vnp7">
+          </head>
           <body
             className={`${inter.variable} ${geistMono.variable} antialiased`}
           >
